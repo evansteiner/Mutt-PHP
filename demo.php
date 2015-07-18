@@ -1,5 +1,15 @@
 <h1>Welcome to Mutt-PHP!</h1>
 
+<h2>config.php</h2>
+<p>Basic project-level config options are set in mutt/config.php. A fresh project contains config.sample in the same directory to act as a template.</p>
+<p>
+Config options include: 
+  <ul>
+    <li>project directory</li>
+    <li>error reporting toggle</li>
+  </ul>
+</p>
+
 <h2>Routing</h2>
 <p>Mutt-PHP bootstraps all pages through index.php and makes use of very simple directory-based routing system. Instead of relying on an actual controller, Mutt-PHP supports an old-school directory location URL schema.</p>
 
@@ -14,3 +24,14 @@
 <p><?php echo localClassDemo::validate(); ?></p>
 <p>Local classes are where your project specific live. These classes should go in mutt/local/classes.</p>
 
+<h2>Debugging Tools</h2>
+<h3>debug::pVarDump($var)</h3>
+<p>Format var_dump for readability:</p>
+<p>
+  <?php
+    $a = new stdCLass();
+    $a->firtName = "John";
+    $a->lastName = "Doe";
+    debug::pVarDump($a);
+  ?>
+</p>
