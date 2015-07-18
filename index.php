@@ -31,3 +31,6 @@
     include $target;
   }
 ?>
+
+<p><?php echo coreClassDemo::validate(); ?></p>
+<p><?php echo localClassDemo::validate(); ?></p>
