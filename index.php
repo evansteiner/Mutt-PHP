@@ -3,10 +3,16 @@
   include 'mutt/config.php';
 
   //autoloading
-  function __autoload($className) {
-    include ('mutt/core/classes/'.$className . '.php');
-    include ('mutt/local/classes/'.$className . '.php');
+  function autoloader($className){
+    if(file_exists('mutt/core/classes/'.$className . '.php')) {
+      include ('mutt/core/classes/'.$className . '.php');
+    }
+    if(file_exists('mutt/local/classes/'.$className . '.php')){
+      include ('mutt/local/classes/'.$className . '.php');
+    }   
   }
+  
+  spl_autoload_register('autoloader');
 
   //dead-ass simple routing
   $method = $_SERVER['REQUEST_METHOD'];
