@@ -5,6 +5,7 @@
   //autoloading
   function __autoload($className) {
     include ('mutt/core/classes/'.$className . '.php');
+    include ('mutt/local/classes/'.$className . '.php');
   }
 
   //dead-ass simple routing
