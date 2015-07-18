@@ -1,6 +1,4 @@
-<h1>Welcome to Mutt-PHP!</h1>
 <?php
-
   include 'mutt/config.php';
 
   //error reporting
@@ -31,6 +29,3 @@
     include $target;
   }
 ?>
-
-<p><?php echo coreClassDemo::validate(); ?></p>
-<p><?php echo localClassDemo::validate(); ?></p>
