@@ -2,6 +2,11 @@
 <?php
   include 'mutt/config.php';
 
+  //autoloading
+  function __autoload($className) {
+    include ('mutt/core/classes/'.$className . '.php');
+  }
+
   //dead-ass simple routing
   $method = $_SERVER['REQUEST_METHOD'];
   $request = $_SERVER['REQUEST_URI'];
