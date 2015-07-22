@@ -22,7 +22,7 @@
 
   //htmlHeaders
   if($htmlHeader == 1) {
-    include 'public/HTMLheader.php';
+    include 'public/includes/htmlHeader.php';
   }
 
   //dead-ass simple routing
@@ -36,6 +36,6 @@
   
   //htmlFooters
   if($htmlFooter == 1) {
-    include 'public/HTMLfooter.php';
+    include 'public/includes/htmlFooter.php';
   }  
 ?>
