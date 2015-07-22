@@ -20,6 +20,11 @@
   
   spl_autoload_register('autoloader');
 
+  //htmlHeaders
+  if($htmlHeader == 1) {
+    include 'public/HTMLheader.php';
+  }
+
   //dead-ass simple routing
   $method = $_SERVER['REQUEST_METHOD'];
   $request = $_SERVER['REQUEST_URI'];
@@ -27,5 +32,10 @@
     $url = explode(PROJECT_DIRECTORY, $request);
     $target = array_pop($url);
     include $target;
-  }
+  }  
+  
+  //htmlFooters
+  if($htmlFooter == 1) {
+    include 'public/HTMLfooter.php';
+  }  
 ?>

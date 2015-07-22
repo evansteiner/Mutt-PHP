@@ -10,6 +10,13 @@ Config options include:
   </ul>
 </p>
 
+<h2>HTML Headers and Footers</h2>
+<p>Mutt-PHP has a commonly used HTML skeleton (header and footer) which can be toggled in the config. These include Twitter Bootstrap by default (loaded via public CDN).</p>
+<ul>
+  <li>CSS v3.3.5</li>
+  <li>JS v3.3.5</li>
+</ul>
+
 <h2>Routing</h2>
 <p>Mutt-PHP bootstraps all pages through index.php and makes use of very simple directory-based routing system. Instead of relying on an actual controller, Mutt-PHP supports an old-school directory location URL schema.</p>
 
@@ -45,11 +52,11 @@ Config options include:
 <h2>Dates and Times</h2>
 <p>Mutt-PHP supports a variety of time() manipulations through the moment class, most of which are just obfuscations of date() broken into a different syntax, with a little modularity to faciliate date math.</p>
 <p>If we assume that $moment = new moment(), then:</p>
-<?php
-$moment = new moment();
-echo $moment->nowMMDDYYYY(). ' //echo $moment->nowMMDDYYYY();';
-echo "<br>";
-echo $moment->nowYYYYMMDD(). ' //echo $moment->nowYYYYMMDD();';
-echo "<br>";
-echo $moment->nowTimestamp(). ' //echo $moment->nowTimestamp();';
-?>
+<pre>
+  <?php
+  $moment = new moment();
+  echo '<p>'.$moment->nowMMDDYYYY(). ' //echo $moment->nowMMDDYYYY();</p>';
+  echo '<p>'.$moment->nowYYYYMMDD(). ' //echo $moment->nowYYYYMMDD();</p>';
+  echo '<p>'.$moment->nowTimestamp(). ' //echo $moment->nowTimestamp();</p>';
+  ?>
+</pre>
