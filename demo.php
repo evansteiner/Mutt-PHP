@@ -41,3 +41,15 @@ Config options include:
     debug::pVarDump($a);
   ?>
 </p>
+
+<h2>Dates and Times</h2>
+<p>Mutt-PHP supports a variety of time() manipulations through the moment class, most of which are just obfuscations of date() broken into a different syntax, with a little modularity to faciliate date math.</p>
+<p>If we assume that $moment = new moment(), then:</p>
+<?php
+$moment = new moment();
+echo $moment->nowMMDDYYYY(). ' //echo $moment->nowMMDDYYYY();';
+echo "<br>";
+echo $moment->nowYYYYMMDD(). ' //echo $moment->nowYYYYMMDD();';
+echo "<br>";
+echo $moment->nowTimestamp(). ' //echo $moment->nowTimestamp();';
+?>
