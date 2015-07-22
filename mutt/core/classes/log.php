@@ -1,10 +1,15 @@
 <?php
 
   class log {
+
     public static function write($msg) {
       if(file_exists(LOG_DIRECTORY.LOG_FILE)){
         $current = file_get_contents(LOG_DIRECTORY.LOG_FILE);
       }
+
+      $time = new moment();
+      $timeStamp = $time->nowTimestamp();
+      $msg = $timeStamp.': '.$msg;
 
       $file = fopen(LOG_DIRECTORY.LOG_FILE,"w");
       if(isset($current)){
