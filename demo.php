@@ -32,10 +32,8 @@ Config options include:
 <p>Local classes are where your project specific live. These classes should go in mutt/local/classes.</p>
 
 <h2>Logging</h2>
-<?php echo __FILE__; ?>
 <h3>log::write('This is my logged message.');</h3>
 <p>Mutt-PHP has native support for basic logging. Log name and directory can be set in config.php.</p>
-<?php log::write('This is my logged message.'); ?>
 
 <h2>Debugging Tools</h2>
 <h3>debug::pVarDump($var)</h3>
