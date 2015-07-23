@@ -26,13 +26,9 @@
   }
 
   //dead-ass simple routing
-  $method = $_SERVER['REQUEST_METHOD'];
-  $request = $_SERVER['REQUEST_URI'];
-  if($request != '/' . PROJECT_DIRECTORY) {
-    $url = explode(PROJECT_DIRECTORY, $request);
-    $target = array_pop($url);
-    include $target;
-  }  
+  $pageObject = new controller();
+  $target = $pageObject->target;
+  include $target;
   
   //htmlFooters
   if($htmlFooter == 1) {
