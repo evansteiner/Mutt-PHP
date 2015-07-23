@@ -11,10 +11,11 @@ Config options include:
 </p>
 
 <h2>HTML Headers and Footers</h2>
-<p>Mutt-PHP has a commonly used HTML skeleton (header and footer) which can be toggled in the config. These include Twitter Bootstrap by default (loaded via public CDN).</p>
+<p>Mutt-PHP has a generic HTML scaffold (header and footer) which can be toggled in the config. These include options for Twitter Bootstrap and header/footer loading of jQuery (loaded via public CDN).</p>
 <ul>
   <li>CSS v3.3.5</li>
   <li>JS v3.3.5</li>
+  <li>jQuery v1.11.3</li>
 </ul>
 
 <h2>Routing</h2>
@@ -32,7 +33,7 @@ Config options include:
 <p>Local classes are where your project specific live. These classes should go in mutt/local/classes.</p>
 
 <h2>Logging</h2>
-<h3>log::write('This is my logged message.');</h3>
+<code>log::write('This is my logged message.');</code>
 <p>Mutt-PHP has native support for basic logging. Log name and directory can be set in config.php.</p>
 
 <h2>Debugging Tools</h2>
@@ -49,7 +50,7 @@ Config options include:
 
 <h2>Dates and Times</h2>
 <p>Mutt-PHP supports a variety of time() manipulations through the moment class, most of which are just obfuscations of date() broken into a different syntax, with a little modularity to faciliate date math.</p>
-<p>If we assume that $moment = new moment(), then:</p>
+<p>If we assume that <code>$moment = new moment()</code>, then:</p>
 <pre>
   <?php
   $moment = new moment();
