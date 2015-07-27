@@ -11,7 +11,7 @@
       $this->method = $_SERVER['REQUEST_METHOD'];
       $this->request = $_SERVER['REQUEST_URI'];
       $this->target = $this->translateURI();
-      $this->isExtended = $this->getExtension();
+      $this->isExtended = $this->hasCustomController();
     }
 
     function translateURI() {
@@ -19,20 +19,19 @@
       if($request != '/' . PROJECT_DIRECTORY) {
         $url = explode(PROJECT_DIRECTORY, $request);
         $target = array_pop($url);
-        return PROJECT_DIRECTORY.'views/'.$target;
+        return PROJECT_DIRECTORY . 'views/'.$target;
       }  
     }
 
-    function getExtension() {
-      $request = $this->request;
-      $extension = substr($request, strrpos($request, '/') + 1);
+    function hasCustomController() {
+      // $target = $this->target;
 
-      if(file_exists('mutt/controllers/local/' . $extension)){
-        return 'found extension in local';
-      }
-
-      elseif(file_exists('mutt/controllers/core/' . $extension)){
-        return 'found extension in core';
-      }      
+      // if(file_exists('mutt/controllers/local/' . $target . '.php')){
+      //   return 'has custom controller';
+      // }
+      // else {
+      //   return 'no custom controller';
+      // }
+      return "evansteiner";
     }
   }
