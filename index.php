@@ -9,13 +9,21 @@
 
   //autoloading
   function autoloader($className){
-    if(file_exists('mutt/core/classes/'.$className . '.php')) {
-      include ('mutt/core/classes/'.$className . '.php');
+    if(file_exists('mutt/models/core/classes/'.$className . '.php')) {
+      include ('mutt/models/core/classes/'.$className . '.php');
     }
 
-    if(file_exists('mutt/local/classes/'.$className . '.php')){
-      include ('mutt/local/classes/'.$className . '.php');
-    }   
+    if(file_exists('mutt/models/local/classes/'.$className . '.php')){
+      include ('mutt/models/local/classes/'.$className . '.php');
+    } 
+
+    if(file_exists('mutt/controllers/core/'.$className . '.php')) {
+      include ('mutt/controllers/core/'.$className . '.php');
+    }
+
+    if(file_exists('mutt/controllers/local/'.$className . '.php')){
+      include ('mutt/controllers/local/'.$className . '.php');
+    }    
   }
   
   spl_autoload_register('autoloader');
