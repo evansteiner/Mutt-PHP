@@ -18,19 +18,42 @@ Config options include:
   <li>jQuery v1.11.3</li>
 </ul>
 
-<h2>Routing</h2>
-<p>Mutt-PHP bootstraps all pages through index.php and makes use of very simple directory-based routing system. Instead of relying on an actual controller, Mutt-PHP supports an old-school directory location URL schema.</p>
-
 <h2>Autoloading</h2>
 <p>Mutt-PHP supports very basic autoloading of core and local classes. To utelize autoloading, use one class per class file, named [className].php.</p>
 
-<h2>Core Classes</h2>
+<h2>Models</h2>
+
+<h3>Core Classes</h3>
 <p><?php echo coreClassDemo::validate(); ?></p>
 <p>Core classes are implicit to the Mutt-PHP framework. You can extend core classes, but you should not directly modify them for your project. These classes live in mutt/core/classes.</p>
 
-<h2>Local Classes</h2>
+<h3>Local Classes</h3>
 <p><?php echo localClassDemo::validate(); ?></p>
 <p>Local classes are where your project specific live. These classes should go in mutt/local/classes.</p>
+
+<h2>Routing</h2>
+<p>Mutt-PHP bootstraps everything through the index.php file and then uses controllers to build pages. The basic breakdown of the URL to routes is:</p>
+<code>{base_url}/{template}/{paramter_1}/{parameter_2}/etc...</code>
+
+<h2>Controllers</h2>
+<p>Once a URI has been broken down, Mutt-PHP processes them through a controller to determine what page data to load. <i>All pages will require a controller to load properly.</i> Mutt-PHP comes with a <code>GenericController()</code> class which must be extended when adding new pages. To ensure proper autoloading, your custom controllers should always follow the <code>[Pagename]Controller</code> naming convention. Custom controllers should be added to mutt/controllers/local/.</p>
+<p>Since local controllers are all extensions of a core controller class, you can really add whatever properties you want to them. However, each local controller should have a template defined at a minimum (and a title if being used for an HTML project):</p>
+<pre>
+  class DemoController extends GenericController {
+
+    var $pageTitle;
+    
+    function __construct() {
+      parent::__construct();
+      $this->template = 'mutt/views/demo.php';
+      $this->pageTitle = 'Welcome To Mutt-PHP';
+    }
+  }
+</pre>
+
+<h2>Views</h2>
+<p>Mutt-PHP doesn't support a specific templating engine out-of-the-box, but there's no reason you couldn't add one.</p>
+<p>View files should be placed in mutt/views/ and then pointed to from a page controller.</p>
 
 <h2>Logging</h2>
 <code>log::write('This is my logged message.');</code>
