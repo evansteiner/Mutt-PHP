@@ -82,3 +82,7 @@ Config options include:
   echo '<p>'.$moment->nowTimestamp(). ' //echo $moment->nowTimestamp();</p>';
   ?>
 </pre>
+
+<h2>Troubleshooting</h2>
+<h3>500 Errors</h3>
+<p>If you are getting a 500 error immediately after starting a new project, ensure that you're file permissions are correct. 755 is a good place to start.</p>
