@@ -59,9 +59,3 @@ Config options include:
   echo '<p>'.$moment->nowTimestamp(). ' //echo $moment->nowTimestamp();</p>';
   ?>
 </pre>
-
-<?php 
-  $a = new controller();
-  echo debug::pVarDump($a);
-
-?>

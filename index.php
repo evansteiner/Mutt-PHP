@@ -28,15 +28,39 @@
   
   spl_autoload_register('autoloader');
 
+  //i need to parse the url string, and then pass that info to a controller. not do it all as one thing.
+  //and really, this will mean abandoning the tiered url support.
+
+
+$aa = new ParseURI();
+echo debug::pVarDump($aa);
+
   //htmlHeaders
   if($htmlHeader == 1) {
     include 'public/includes/htmlHeader.php';
   }
 
   //dead-ass simple routing
-  $pageObject = new controller();
-  $target = $pageObject->target;
-  include $target;
+  $uriObject = new ParseURI();
+  $target = $uriObject->target;
+  $target = ucfirst($target);
+
+  if (class_exists($target . 'Controller')) {
+    $controllerClass = $target . 'Controller';
+    $pageObject = new $controllerClass;
+  }
+  else {
+    $pageObject = new GenericController();
+  }
+
+  echo debug::pVarDump($pageObject);
+
+  include $pageObject->template;
+
+
+
+  // $target = $pageObject->target;
+  // include $target;
   
   //htmlFooters
   if($htmlFooter == 1) {
