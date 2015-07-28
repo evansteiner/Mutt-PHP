@@ -1,0 +1,16 @@
+<?php
+  DEFINE('PROJECT_DIRECTORY', ''); //root directory of your project on the server
+  DEFINE('LOG_DIRECTORY', ''); //the directory you want your base log to be in
+  DEFINE('LOG_FILE', ''); //the file name of your base log
+
+  $errorReporting = 1; // PHP error reporting; 0 for off; 1 for on;
+
+  $htmlHeader = 1; // pre-built HTML header for HTML projects; 0 for no; 1 for yes;
+  $htmlFooter = 1; // pre-built HTML footer for HTML projects; 0 for no; 1 for yes;
+
+  $twitterBootstap = 1; // include bootstrap in the header; HTML header must be active; 0 for no; 1 for yes;
+
+  $jQueryHeader = 0; // include jQuery in the header; HTML header must be active; 0 for no; 1 for yes;
+  $jQueryFooter = 1; // include jQuery in the footer; HTML footer must be active; 0 for no; 1 for yes;
+
+  $baseStylesFile = 1; // include a default styles file from public/css/styles.css; 0 for no; 1 for yes;
