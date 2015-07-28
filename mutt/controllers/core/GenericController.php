@@ -11,4 +11,15 @@
       $this->request = $_SERVER['REQUEST_URI'];
       $this->template = 'mutt/views/error.php';
     }
+
+    function getTitle() {
+      if(isset($this->pageTitle)){
+        $title = "<title>$this->pageTitle</title>";
+        return $title;
+      }
+      else {
+        return false;
+      }
+    }
+
   }
