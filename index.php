@@ -39,8 +39,11 @@
     $pageObject = new $controllerClass;
   }
   else {
-    $pageObject = new GenericController();
+    header($_SERVER["SERVER_PROTOCOL"]." 404 Not Found");
+    include 'mutt/views/errors/404error.php';
+    exit();
   }
+
 
   //htmlHeaders
   if($htmlHeader == 1) {
