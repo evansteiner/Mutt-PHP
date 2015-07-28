@@ -1,0 +1,1 @@
+This is the homepage. For more details on how to set up a project, head over to the <a href="demo">demo page</a>.

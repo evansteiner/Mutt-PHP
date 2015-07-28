@@ -20,6 +20,9 @@
         $uriArray = explode('/', $uri);
         $target = $uriArray[0];
         return $target;
+      }
+      else {
+        return "index";
       }  
     }
   }
