@@ -15,7 +15,13 @@
       }
       if($baseStylesFile == 1) {
         $server = $_SERVER['SERVER_NAME'] . '/' . PROJECT_DIRECTORY;
-        echo '<link rel="stylesheet" href="http://' . $server . 'public/css/styles.css">';
+        if($randomizeBaseCssString == 1) {
+          $random = rand(1, 10000);
+          echo '<link rel="stylesheet" href="http://' . $server . 'public/css/styles.css?'.$random.'">';
+        }
+        else {
+          echo '<link rel="stylesheet" href="http://' . $server . 'public/css/styles.css">';
+        }
       }
     ?>
 
