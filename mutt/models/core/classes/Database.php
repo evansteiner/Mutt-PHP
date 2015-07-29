@@ -8,12 +8,13 @@
     }
 
     function validateConnection() {
-      $conn = $this->dbConnect();
-      if($conn){
-        return "Valid database connection found!";
-      }
-      else {
-        return "No valid database connection found.";
+        $conn = $this->dbConnect();
+        if($conn){
+          return "Valid database connection found!";
+        }
+        else {
+          return "No valid database connection found.";
+        }
       }
     }
 
