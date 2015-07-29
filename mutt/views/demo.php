@@ -65,6 +65,14 @@
   <p>Mutt-PHP doesn't support a specific templating engine out-of-the-box, but there's no reason you couldn't add one.</p>
   <p>View files should be placed in mutt/views/ and then be pointed to from a page controller.</p>
   
+  <h2>Database</h2>
+  <p>Mutt-PHP supports slightly abstracted mySQLi functions through the <code>Database()</code> class. At this time, it only supports a single database connection out-of-the-box, although you could extend the class with multiple connections if needed. Connection details shoudl be supplied in config.php</p>
+  <p>Sample useage:</p>
+  <pre>
+    $connection = new Database;
+    $connection->query("INSERT INTO names (first, last) VALUES ('john', 'doe')");
+  </pre>
+
   <h2>Logging</h2>
   <p><code>log::write('This is my logged message.');</code></p>
   <p>Mutt-PHP has native support for basic logging. Log name and directory can be set in config.php.</p>
