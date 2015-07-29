@@ -16,11 +16,29 @@
           return "No valid database connection found.";
         }
       }
-    }
 
     function query($query){
       $conn = $this->dbConnect();
       $conn->query($query);
       mysqli_close($conn); 
+    }
+
+    function fetchRow($query){
+      $conn = $this->dbConnect();
+      $data = $conn->query($query);
+      $result = $data->fetch_row();
+      mysqli_close($conn); 
+      return $result;
+    }
+
+    function fetchAll($query){
+      $rows = array();
+      $conn = $this->dbConnect();
+      $result = $conn->query($query);
+      while($row = $result->fetch_assoc()){
+        $rows[] = $row;
+      }
+      mysqli_close($conn); 
+      return $rows;
     }
   }
