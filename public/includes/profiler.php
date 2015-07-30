@@ -44,6 +44,14 @@
       debug::pVarDump($pageObject);
     ?>
   </div>  
+  <div><a href="#" onclick="toggle('cookies')">COOKIES</a></div>
+  <div id="cookies" style="display: none;">
+    *this readout is set BEFORE code on the actual page is executed, so a refresh may be necessary to see cookies set on this page
+    <?php
+      debug::pVarDump($_COOKIE);
+    ?>
+    <a href="?deleteAllCookies">Delete all cookies on this domain</a>
+  </div> 
 </div>
 
 <script>

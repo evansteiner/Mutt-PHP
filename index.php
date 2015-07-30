@@ -1,4 +1,5 @@
 <?php
+
   include 'mutt/config.php';
 
   //error reporting
@@ -28,6 +29,10 @@
   
   spl_autoload_register('autoloader');
 
+  //cookies
+  if(isset($_GET['deleteAllCookies'])) {
+    Cookie::deleteAllCookies();
+  }
 
   //routing for controller
   $uriObject = new ParseURI();
@@ -62,4 +67,6 @@
   if($htmlFooter == 1) {
     include 'public/includes/htmlFooter.php';
   }  
+
+
 ?>
