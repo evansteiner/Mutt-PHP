@@ -12,7 +12,8 @@
 </style>
 
 <div class="profiler">
-    <div style="float: left;">
+    <div><a href="#" onclick="toggle('variables')">VARIABLES</a></div>
+    <div id="variables" style="display: none;">
       <pre>
         PROJECT_DIRECTORY = <?php echo PROJECT_DIRECTORY; ?>
 
@@ -31,9 +32,17 @@
         $randomizeBaseCssString = <?php echo $randomizeBaseCssString; ?>
      </pre>
   </div>
-  <div style="float: right;">
+  <div><a href="#" onclick="toggle('pageObject')">PAGE OBJECT</a></div>
+  <div id="pageObject" style="display: none;">
     <?php
       debug::pVarDump($pageObject);
     ?>
   </div>  
 </div>
+
+<script>
+  function toggle(obj) {
+    var el = document.getElementById(obj);
+    el.style.display = (el.style.display != 'none' ? 'none' : '' );
+  }
+</script>
