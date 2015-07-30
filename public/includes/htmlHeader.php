@@ -27,8 +27,3 @@
 
   </head>
   <body>
-<?php
-  if($showProfiler == 1){
-    include 'public/includes/profiler.php';
-  }
-?>

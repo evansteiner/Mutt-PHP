@@ -50,6 +50,11 @@
     include 'public/includes/htmlHeader.php';
   }
 
+  //profiler
+  if($showProfiler == 1){
+    include 'public/includes/profiler.php';
+  }
+
   //page template
   include $pageObject->template;
   
