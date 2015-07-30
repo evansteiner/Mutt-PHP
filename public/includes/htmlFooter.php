@@ -3,7 +3,7 @@
     include 'public/includes/jQuery.php';
   }
 
-  if($twitterBootstap == 1) {
+  if($twitterBootstrap == 1) {
     include 'public/includes/twitterBootstrapFooter.php';
   }
 ?>

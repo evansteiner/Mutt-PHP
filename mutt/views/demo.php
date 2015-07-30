@@ -115,7 +115,3 @@
   <h3 class="indent-1">Request Problems</h3>
   <p class="indent-1">Since Mutt-PHP relies on bootstrapping, the .htaccess file will attempt to route all requests through index.php and look for appropriate controllers. This can be problematic if you're trying to link to a file which is in a traditional hierarchical location, such as css of js files. To account for this, you should exclude any files types that you don't want routed through a controller via the .htaccess file. The default exclusions are: js, ico, txt, gif, jpg, png, and css</p>
 </div>
-
-<?php
-print_r(get_declared_classes());
-?>
