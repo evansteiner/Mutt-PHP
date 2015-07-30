@@ -10,7 +10,7 @@
       if($jQueryHeader == 1) {
         include 'public/includes/jQuery.php';
       }    
-      if($twitterBootstap == 1) {
+      if($twitterBootstrap == 1) {
         include 'public/includes/twitterBootstrapHeader.php';
       }
       if($baseStylesFile == 1) {
