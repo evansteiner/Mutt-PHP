@@ -8,6 +8,12 @@
     margin-right: auto;
     padding: 10px;
     margin-top: 10px;
+    font-family: courier;
+    font-size: 12px;
+  }
+
+  .profiler pre {
+    font-size: 12px;
   }
 </style>
 
