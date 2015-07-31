@@ -51,21 +51,21 @@ $randomizeBaseCssString = <?php echo $randomizeBaseCssString; ?>
   <div class="category" onclick="toggle('pageObject')">PAGE OBJECT</div>
   <div class="profilerContent" id="pageObject" style="display: none;">
     <?php
-      debug::pVarDump($pageObject);
+      Debug::pVarDump($pageObject);
     ?>
   </div> 
 
   <div class="category" onclick="toggle('post')">POST</div>
   <div class="profilerContent" id="post" style="display: none;">
     <?php
-      debug::pVarDump($_POST);
+      Debug::pVarDump($_POST);
     ?>
   </div>   
 
   <div class="category" onclick="toggle('cookies')">COOKIES</div>
   <div class="profilerContent" id="cookies" style="display: none;">
     <?php
-      debug::pVarDump($_COOKIE);
+      Debug::pVarDump($_COOKIE);
     ?>
     Add a cookie:
     <form method="post" action="?addCookie">
@@ -82,7 +82,7 @@ $randomizeBaseCssString = <?php echo $randomizeBaseCssString; ?>
   <div class="profilerContent" id="logs" style="display: none;">
     <div>ERROR LOG</div>
     <pre>
-<?php echo log::getPhpErrorLog(); ?>
+<?php echo Log::getPhpErrorLog(); ?>
     </pre>
     <a href="?deletePhpErrorLog">Delete PHP error_log</a>
     <br><br>

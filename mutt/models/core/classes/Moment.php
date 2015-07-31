@@ -1,6 +1,6 @@
 <?php
 
-  class moment {
+  class Moment {
 
     var $epoch;
 

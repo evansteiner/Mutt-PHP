@@ -35,15 +35,15 @@
 
   //log management 
   if(isset($_GET['deletePhpErrorLog'])) {
-    log::deletePhpErrorLog("http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
+    Log::deletePhpErrorLog("http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
   }
 
   if(isset($_GET['writeLocalLog'])) {
-    log::writeLocalLog("http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
+    Log::writeLocalLog("http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
   }
 
   if(isset($_GET['deleteLocalLog'])) {
-    log::deleteLocalLog("http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
+    Log::deleteLocalLog("http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
   }
 
   //error reporting

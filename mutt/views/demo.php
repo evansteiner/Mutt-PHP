@@ -85,23 +85,23 @@
   <p>Mutt-PHP has native support for basic logging. Log name and directory can be set in config.php.</p>
   
   <h2>Debugging Tools</h2>
-  <h3 class="indent-1">debug::pVarDump($var)</h3>
+  <h3 class="indent-1">Debug::pVarDump($var)</h3>
   <p class="indent-1">Format var_dump for readability:</p>
   <p class="indent-1">
     <?php
       $a = new stdCLass();
       $a->firtName = "John";
       $a->lastName = "Doe";
-      debug::pVarDump($a);
+      Debug::pVarDump($a);
     ?>
   </p>
   
   <h2>Dates and Times</h2>
   <p>Mutt-PHP supports a variety of time() manipulations through the moment class, most of which are just obfuscations of date() broken into a different syntax, with a little modularity to faciliate date math.</p>
-  <p>If we assume that <code>$moment = new moment()</code>, then:</p>
+  <p>If we assume that <code>$moment = new Moment()</code>, then:</p>
   <pre>
     <?php
-    $moment = new moment();
+    $moment = new Moment();
     echo '<p>'.$moment->nowMMDDYYYY(). ' //echo $moment->nowMMDDYYYY();</p>';
     echo '<p>'.$moment->nowYYYYMMDD(). ' //echo $moment->nowYYYYMMDD();</p>';
     echo '<p>'.$moment->nowTimestamp(). ' //echo $moment->nowTimestamp();</p>';

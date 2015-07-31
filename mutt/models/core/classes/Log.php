@@ -1,13 +1,13 @@
 <?php
 
-  class log {
+  class Log {
 
     public static function write($msg) {
       if(file_exists(LOG_DIRECTORY.LOG_FILE)){
         $current = file_get_contents(LOG_DIRECTORY.LOG_FILE);
       }
 
-      $time = new moment();
+      $time = new Moment();
       $timeStamp = $time->nowTimestamp();
       $msg = $timeStamp.': '.$msg;
 
@@ -50,7 +50,7 @@
 
     public static function writeLocalLog($returnURL) {
       $msg = $_POST['log'];
-      log::write($msg);
+      Log::write($msg);
 
       if(strpos($returnURL, '?writeLocalLog')) {
         $returnURL = substr($returnURL, 0, strpos($returnURL, "?writeLocalLog"));
