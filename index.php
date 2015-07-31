@@ -3,6 +3,9 @@
   include 'mutt/config.php';
 
   //autoloading
+  include 'vendor/autoload.php';
+
+
   function autoloader($className){
     if(file_exists('mutt/models/core/classes/'.$className . '.php')) {
       include ('mutt/models/core/classes/'.$className . '.php');
