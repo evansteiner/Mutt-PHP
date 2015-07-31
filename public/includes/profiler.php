@@ -1,7 +1,7 @@
 <style>
   .profiler {
-    border: 1px solid;
-    background: #F5F5F0;
+    border: 1px solid #CCC;
+    background: #F5F5F5;
     overflow: hidden;
     max-width: 940px;
     margin-left: auto;
@@ -73,8 +73,17 @@
     </form>
     <a href="?deleteAllCookies">Delete all cookies on this domain</a>
   </div> 
-</div>
 
+  <div class="category" onclick="toggle('common')">COMMON</div>
+  <div id="common" style="display: none;">
+    <div>DATABASE</div>
+    <ul>
+      <li>"INSERT INTO names (first, last) VALUES ('john', 'doe')"</li>
+    </ul>
+  </div>  
+
+
+</div>
 <script>
   function toggle(obj) {
     var el = document.getElementById(obj);
