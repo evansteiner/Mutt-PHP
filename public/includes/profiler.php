@@ -85,8 +85,14 @@ $randomizeBaseCssString = <?php echo $randomizeBaseCssString; ?>
 <?php echo log::getPhpErrorLog(); ?>
     </pre>
     <a href="?deletePhpErrorLog">Delete PHP error_log</a>
+    <br><br>
+    <form method="post" action="?writeLocalLog">
+      <input type='text' name="log" style="width: 50%;">
+      <input type="submit" value="write">
+    </form>
+    <a href="?deleteLocalLog">Delete local log</a>
     <br>
-    <?php echo '<a href="http://' . $_SERVER["SERVER_NAME"] . '/' . PROJECT_DIRECTORY . LOG_DIRECTORY . LOG_FILE . '" target = "_blank">LOCAL LOG</a>'; ?>
+    <?php echo '<a href="http://' . $_SERVER["SERVER_NAME"] . '/' . PROJECT_DIRECTORY . LOG_DIRECTORY . LOG_FILE . '" target = "_blank">Open local log</a>'; ?>
   </div>  
 
   <div class="category" onclick="toggle('common')">COMMON</div>
@@ -104,4 +110,5 @@ $randomizeBaseCssString = <?php echo $randomizeBaseCssString; ?>
     var el = document.getElementById(obj);
     el.style.display = (el.style.display != 'none' ? 'none' : '' );
   }
+
 </script>

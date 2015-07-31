@@ -37,4 +37,26 @@
       return;
     }
 
+    public static function deleteLocalLog($returnURL) {
+      if(file_exists(LOG_DIRECTORY.LOG_FILE)){
+        unlink(LOG_DIRECTORY.LOG_FILE);
+      }
+      if(strpos($returnURL, '?deleteLocalLog')) {
+        $returnURL = substr($returnURL, 0, strpos($returnURL, "?deleteLocalLog"));
+      }
+      header("Location: $returnURL");
+      return;
+    }
+
+    public static function writeLocalLog($returnURL) {
+      $msg = $_POST['log'];
+      log::write($msg);
+
+      if(strpos($returnURL, '?writeLocalLog')) {
+        $returnURL = substr($returnURL, 0, strpos($returnURL, "?writeLocalLog"));
+      }
+      header("Location: $returnURL");
+      return;
+    }
+
   }

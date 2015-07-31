@@ -38,6 +38,14 @@
     log::deletePhpErrorLog("http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
   }
 
+  if(isset($_GET['writeLocalLog'])) {
+    log::writeLocalLog("http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
+  }
+
+  if(isset($_GET['deleteLocalLog'])) {
+    log::deleteLocalLog("http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
+  }
+
   //error reporting
   if($errorReporting == 1){
     error_reporting(E_ALL);
