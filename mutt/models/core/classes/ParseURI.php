@@ -19,6 +19,11 @@
         $uri = str_replace('/' . PROJECT_DIRECTORY, '', $request);
         $uriArray = explode('/', $uri);
         $target = $uriArray[0];
+
+        //strip out any query strings
+        if(strpos($target, '?')) {
+          $target = substr($target, 0, strpos($target, "?"));
+        }
         return $target;
       }
       else {
