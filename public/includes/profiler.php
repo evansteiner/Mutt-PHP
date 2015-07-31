@@ -98,8 +98,11 @@ $randomizeBaseCssString = <?php echo $randomizeBaseCssString; ?>
   <div class="category" onclick="toggle('common')">COMMON</div>
   <div class="profilerContent" id="common" style="display: none;">
     <div>DATABASE</div>
+    $connection = new Database;
     <ul>
-      <li>"INSERT INTO names (first, last) VALUES ('john', 'doe')"</li>
+      <li>$result = $connection->query("INSERT INTO names (first, last) VALUES ('john', 'doe')");</li>
+      <li>$result = $connection->fetchRow("SELECT * FROM people WHERE first_name = 'john'");</li>
+      <li>$result = $connection->fetchAll("SELECT * FROM people");</li>
     </ul>
   </div>  
 
