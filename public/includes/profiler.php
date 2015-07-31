@@ -13,9 +13,13 @@
   }
 
   .profiler .category {
-    color: #337AB7;
+    color: #23527C;
     cursor: pointer; cursor: hand;
 
+  }
+
+  .profiler .profilerContent {
+    margin-left: 20px;
   }
 
   .profiler pre {
@@ -24,42 +28,42 @@
 </style>
 
 <div class="profiler">
-    <div class="category" onclick="toggle('variables')">VARIABLES</div>
-    <div id="variables" style="display: none;">
+    <div class="category" onclick="toggle('variables')">FRAMEWORK VARIABLES</div>
+    <div class="profilerContent" id="variables" style="display: none;">
       <pre>
-        PROJECT_DIRECTORY = <?php echo PROJECT_DIRECTORY; ?>
+PROJECT_DIRECTORY = <?php echo PROJECT_DIRECTORY; ?>
 
-        LOG_DIRECTORY = <?php echo LOG_DIRECTORY; ?>
+LOG_DIRECTORY = <?php echo LOG_DIRECTORY; ?>
 
-        LOG_FILE = <?php echo '<a href="http://' . $_SERVER["SERVER_NAME"] . '/' . PROJECT_DIRECTORY . LOG_DIRECTORY . LOG_FILE . '" target = "_blank">' . LOG_FILE . '</a>'; ?>
+LOG_FILE = <?php echo '<a href="http://' . $_SERVER["SERVER_NAME"] . '/' . PROJECT_DIRECTORY . LOG_DIRECTORY . LOG_FILE . '" target = "_blank">' . LOG_FILE . '</a>'; ?>
         
-        $errorReporting = <?php echo $errorReporting; ?>
+$errorReporting = <?php echo $errorReporting; ?>
 
-        $twitterBootstrap = <?php echo $twitterBootstrap; ?>
+$twitterBootstrap = <?php echo $twitterBootstrap; ?>
 
-        $jQueryHeader = <?php echo $jQueryHeader; ?>
+$jQueryHeader = <?php echo $jQueryHeader; ?>
 
-        $jQueryFooter = <?php echo $jQueryFooter; ?>
+$jQueryFooter = <?php echo $jQueryFooter; ?>
 
-        $randomizeBaseCssString = <?php echo $randomizeBaseCssString; ?>
+$randomizeBaseCssString = <?php echo $randomizeBaseCssString; ?>
      </pre>
   </div>
   <div class="category" onclick="toggle('pageObject')">PAGE OBJECT</div>
-  <div id="pageObject" style="display: none;">
+  <div class="profilerContent" id="pageObject" style="display: none;">
     <?php
       debug::pVarDump($pageObject);
     ?>
   </div> 
 
   <div class="category" onclick="toggle('post')">POST</div>
-  <div id="post" style="display: none;">
+  <div class="profilerContent" id="post" style="display: none;">
     <?php
       debug::pVarDump($_POST);
     ?>
   </div>   
 
   <div class="category" onclick="toggle('cookies')">COOKIES</div>
-  <div id="cookies" style="display: none;">
+  <div class="profilerContent" id="cookies" style="display: none;">
     <?php
       debug::pVarDump($_COOKIE);
     ?>
@@ -74,8 +78,19 @@
     <a href="?deleteAllCookies">Delete all cookies on this domain</a>
   </div> 
 
+  <div class="category" onclick="toggle('logs')">LOGS</div>
+  <div class="profilerContent" id="logs" style="display: none;">
+    <div>ERROR LOG</div>
+    <pre>
+<?php echo log::getPhpErrorLog(); ?>
+    </pre>
+    <a href="?deletePhpErrorLog">Delete PHP error_log</a>
+    <br>
+    <?php echo '<a href="http://' . $_SERVER["SERVER_NAME"] . '/' . PROJECT_DIRECTORY . LOG_DIRECTORY . LOG_FILE . '" target = "_blank">LOCAL LOG</a>'; ?>
+  </div>  
+
   <div class="category" onclick="toggle('common')">COMMON</div>
-  <div id="common" style="display: none;">
+  <div class="profilerContent" id="common" style="display: none;">
     <div>DATABASE</div>
     <ul>
       <li>"INSERT INTO names (first, last) VALUES ('john', 'doe')"</li>

@@ -33,6 +33,11 @@
     Cookie::setCookie("http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
   }
 
+  //log management 
+  if(isset($_GET['deletePhpErrorLog'])) {
+    log::deletePhpErrorLog("http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
+  }
+
   //error reporting
   if($errorReporting == 1){
     error_reporting(E_ALL);

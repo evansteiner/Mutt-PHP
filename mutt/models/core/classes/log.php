@@ -18,4 +18,23 @@
       fwrite($file,$msg."\r\n");
       fclose($file);
     }
+
+    public static function getPhpErrorLog(){
+      if(file_exists('error_log')){
+        $current = file_get_contents('error_log');
+        return $current;
+      }
+    }
+
+    public static function deletePhpErrorLog($returnURL) {
+      if(file_exists('error_log')){
+        unlink('error_log');
+      }
+      if(strpos($returnURL, '?deletePhpErrorLog')) {
+        $returnURL = substr($returnURL, 0, strpos($returnURL, "?deletePhpErrorLog"));
+      }
+      header("Location: $returnURL");
+      return;
+    }
+
   }
