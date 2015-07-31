@@ -32,11 +32,9 @@
   <h2>Models</h2>
   
   <h3 class="indent-1">Core Classes</h3>
-  <p class="indent-1"><?php echo coreClassDemo::validate(); ?></p>
   <p class="indent-1">Core classes are implicit to the Mutt-PHP framework. You can extend core classes, but you should not directly modify them for your project. These classes live in mutt/core/classes.</p>
   
   <h3 class="indent-1">Local Classes</h3>
-  <p class="indent-1"><?php echo localClassDemo::validate(); ?></p>
   <p class="indent-1">Local classes are where your project specific classes live. These classes should go in mutt/local/classes.</p>
   
   <h2>Routing</h2>
