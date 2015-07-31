@@ -2,12 +2,6 @@
 
   include 'mutt/config.php';
 
-  //error reporting
-  if($errorReporting == 1){
-    error_reporting(E_ALL);
-    ini_set('display_errors', 1);
-  }
-
   //autoloading
   function autoloader($className){
     if(file_exists('mutt/models/core/classes/'.$className . '.php')) {
@@ -29,9 +23,20 @@
   
   spl_autoload_register('autoloader');
 
+
   //cookies
   if(isset($_GET['deleteAllCookies'])) {
-    Cookie::deleteAllCookies();
+    Cookie::deleteAllCookies("http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
+  }
+
+  if(isset($_GET['addCookie'])) {
+    Cookie::setCookie("http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
+  }
+
+  //error reporting
+  if($errorReporting == 1){
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
   }
 
   //routing for controller

@@ -12,13 +12,19 @@
     font-size: 12px;
   }
 
+  .profiler .category {
+    color: #337AB7;
+    cursor: pointer; cursor: hand;
+
+  }
+
   .profiler pre {
     font-size: 12px;
   }
 </style>
 
 <div class="profiler">
-    <div><a href="#" onclick="toggle('variables')">VARIABLES</a></div>
+    <div class="category" onclick="toggle('variables')">VARIABLES</div>
     <div id="variables" style="display: none;">
       <pre>
         PROJECT_DIRECTORY = <?php echo PROJECT_DIRECTORY; ?>
@@ -38,18 +44,33 @@
         $randomizeBaseCssString = <?php echo $randomizeBaseCssString; ?>
      </pre>
   </div>
-  <div><a href="#" onclick="toggle('pageObject')">PAGE OBJECT</a></div>
+  <div class="category" onclick="toggle('pageObject')">PAGE OBJECT</div>
   <div id="pageObject" style="display: none;">
     <?php
       debug::pVarDump($pageObject);
     ?>
-  </div>  
-  <div><a href="#" onclick="toggle('cookies')">COOKIES</a></div>
+  </div> 
+
+  <div class="category" onclick="toggle('post')">POST</div>
+  <div id="post" style="display: none;">
+    <?php
+      debug::pVarDump($_POST);
+    ?>
+  </div>   
+
+  <div class="category" onclick="toggle('cookies')">COOKIES</div>
   <div id="cookies" style="display: none;">
-    *this readout is set BEFORE code on the actual page is executed, so a refresh may be necessary to see cookies set on this page
     <?php
       debug::pVarDump($_COOKIE);
     ?>
+    Add a cookie:
+    <form method="post" action="?addCookie">
+      <input type='text' name="cookieName" placeholder="Name">
+      <input type='text' name="cookieValue" placeholder="Value">
+      <input type='text' name="cookieDuration" placeholder="Duration (seconds)">
+      <input type='text' name="cookieDomain" placeholder="Domain" value="/">
+      <input type="submit" value="create">
+    </form>
     <a href="?deleteAllCookies">Delete all cookies on this domain</a>
   </div> 
 </div>
