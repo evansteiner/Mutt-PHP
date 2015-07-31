@@ -1,13 +1,5 @@
 <div class = "demoPage">
   <h1>Welcome to Mutt-PHP!</h1>
-
-  <h2>Service Status</h2>
-  <pre>
-    Core classes: <?php echo coreClassDemo::validate(); ?>
-    <br>
-    Local classes: <?php echo localClassDemo::validate(); ?>
-  </pre>
-  
   <h2>config.php</h2>
   <p>Basic project-level config options are set in mutt/config.php. A fresh project contains config.sample in the same directory to act as a template.</p>
   <p>
