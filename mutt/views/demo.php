@@ -1,7 +1,16 @@
 <div class = "demoPage">
   <h1>Welcome to Mutt-PHP!</h1>
-  <h2>config.php</h2>
-  <p>Basic project-level config options are set in mutt/config.php. A fresh project contains config.sample in the same directory to act as a template.</p>
+
+  <h2>Getting Started</h2>
+
+  <h3>Install Dependencies</h3>
+  <p>Mutt-PHP use <a href="https://getcomposer.org/" target="_blank">Composer</a> to manage dependencies. To install the required dependencies, use:</p>
+  <ul>
+    <li><code>curl -sS https://getcomposer.org/installer | php</code></li>
+    <li><code>php composer.phar install</code></li>
+  </ul>
+  <h3>Set Up config.php</h3>
+  <p>Basic project-level config options are set in mutt/config.php. A fresh project contains config.sample in the same directory to act as a template. You should copy or rename this file to config.php.</p>
   <p>
   Config options include: 
     <ul>
