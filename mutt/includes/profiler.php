@@ -48,12 +48,20 @@ $jQueryFooter = <?php echo $jQueryFooter; ?>
 $randomizeBaseCssString = <?php echo $randomizeBaseCssString; ?>
      </pre>
   </div>
+
+  <div class="category" onclick="toggle('uriObject')">URI OBJECT</div>
+  <div class="profilerContent" id="uriObject" style="display: none;">
+    <?php
+      Debug::pVarDump($uriObject);
+    ?>
+  </div> 
+
   <div class="category" onclick="toggle('pageObject')">PAGE OBJECT</div>
   <div class="profilerContent" id="pageObject" style="display: none;">
     <?php
       Debug::pVarDump($pageObject);
     ?>
-  </div> 
+  </div>   
 
   <div class="category" onclick="toggle('post')">POST</div>
   <div class="profilerContent" id="post" style="display: none;">
