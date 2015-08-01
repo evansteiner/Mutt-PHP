@@ -27,10 +27,10 @@
         $server = $_SERVER['SERVER_NAME'] . '/' . PROJECT_DIRECTORY;
         if($randomizeBaseJSString == 1) {
           $random = rand(1, 10000);
-          echo '<script type="text/javascript" src="http://' . $server . 'public/js/scripts.js?'.$random.'">';
+          echo '<script type="text/javascript" src="http://' . $server . 'public/js/scripts.js?'.$random.'"></script>';
         }
         else {
-          echo '<script type="text/javascript" src="http://' . $server . 'public/js/scripts.js">';
+          echo '<script type="text/javascript" src="http://' . $server . 'public/js/scripts.js"></script>';
         }
       }
       }
