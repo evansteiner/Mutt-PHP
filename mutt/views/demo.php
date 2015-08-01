@@ -80,7 +80,7 @@
   </pre>
 
   <h2>Logging</h2>
-  <p><code>log::write('This is my logged message.');</code></p>
+  <p><code>Log::write('This is my logged message.');</code></p>
   <p>Mutt-PHP has native support for basic logging. Log name and directory can be set in config.php.</p>
   
   <h2>Debugging Tools</h2>
