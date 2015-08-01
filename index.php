@@ -73,12 +73,12 @@
 
   //htmlHeaders
   if($htmlHeader == 1) {
-    include 'public/includes/htmlHeader.php';
+    include 'mutt/includes/htmlHeader.php';
   }
 
   //profiler
   if($showProfiler == 1){
-    include 'public/includes/profiler.php';
+    include 'mutt/includes/profiler.php';
   }
 
   //page template
@@ -86,7 +86,7 @@
   
   //htmlFooters
   if($htmlFooter == 1) {
-    include 'public/includes/htmlFooter.php';
+    include 'mutt/includes/htmlFooter.php';
   }  
 
 

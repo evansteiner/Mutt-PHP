@@ -8,10 +8,10 @@
       echo $pageObject->getTitle();
 
       if($jQueryHeader == 1) {
-        include 'public/includes/jQuery.php';
+        include 'mutt/includes/jQuery.php';
       }    
       if($twitterBootstrap == 1) {
-        include 'public/includes/twitterBootstrapHeader.php';
+        include 'mutt/includes/twitterBootstrapHeader.php';
       }
       if($baseStylesFile == 1) {
         $server = $_SERVER['SERVER_NAME'] . '/' . PROJECT_DIRECTORY;
