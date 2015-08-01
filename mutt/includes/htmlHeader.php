@@ -22,6 +22,17 @@
         else {
           echo '<link rel="stylesheet" href="http://' . $server . 'public/css/styles.css">';
         }
+
+      if($baseJSFile == 1) {
+        $server = $_SERVER['SERVER_NAME'] . '/' . PROJECT_DIRECTORY;
+        if($randomizeBaseJSString == 1) {
+          $random = rand(1, 10000);
+          echo '<script type="text/javascript" src="http://' . $server . 'public/js/scripts.js?'.$random.'">';
+        }
+        else {
+          echo '<script type="text/javascript" src="http://' . $server . 'public/js/scripts.js">';
+        }
+      }
       }
     ?>
 
