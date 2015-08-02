@@ -1,74 +1,94 @@
 <?php
 
   class ParseURI {
+
     var $method;
-    var $request;
+    var $scheme;
+    var $host;
+    var $path;
     var $target;
-    var $parameters;
+    var $parameters = NULL;
+    var $query = NULL;
 
     function __construct() {
       $this->method = $_SERVER['REQUEST_METHOD'];
-      $this->request = $_SERVER['REQUEST_URI'];
-      $this->target = $this->getTarget();
+      $this->deconstructURI();
       $this->parameters = $this->getAllParameters();
+    }
+    
+    function deconstructURI() {
+      //todo: add https detection support
+      $uri = "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+      $uriParse = parse_url($uri);
+      $this->scheme = $uriParse['scheme']; 
+      $this->host = $uriParse['host']; 
+      $this->path = $uriParse['path']; 
+      $this->target = $this->getTarget();
+      $this->parameters = "";
+      
+      if(isset($uriParse['query'])) {
+        $this->query = $uriParse['query'];
+      }
     }
 
     function getTarget() {
-      $request = $this->request;
-      if($request != '/' . PROJECT_DIRECTORY) {
-        $uri = str_replace('/' . PROJECT_DIRECTORY, '', $request);
-        $uriArray = explode('/', $uri);
-        $target = $uriArray[0];
-
-        //strip out any query strings
-        if(strpos($target, '?')) {
-          $target = substr($target, 0, strpos($target, "?"));
+      $path = trim($this->path, '/');
+      if($path != trim(PROJECT_DIRECTORY, '/')) {
+        $pathArray = explode("/",$path);
+        if($pathArray[0] == trim(PROJECT_DIRECTORY, '/')){
+          return $pathArray[1];
         }
-        return $target;
+        else {
+          return $pathArray[0];
+        }
       }
       else {
-        return "index";
-      }  
+        return 'index';
+      }
     }
 
     function getAllParameters() {
-      $request = $this->request;
+      $path = trim($this->path, '/');
+      $pathArray = explode('/', $path);
 
-      //strip out any query strings
-      if(strpos($request, '?')) {
-        $request = substr($request, 0, strpos($request, "?"));
+      //remove the folder path if it exists
+      if($pathArray[0] == trim(PROJECT_DIRECTORY, '/')) {
+        unset($pathArray[0]);
+        $pathArray = array_values($pathArray);
       }
 
-      //remove trailing slashes
-      $request = rtrim($request, "/");
+      //remove the target if it's next
+      if($pathArray[0] == $this->target) {
+        unset($pathArray[0]);
+        $pathArray = array_values($pathArray);
+      }
+      
+      $paramArray = array();
 
-      if($request != '/' . PROJECT_DIRECTORY) {
-        $uri = str_replace('/' . PROJECT_DIRECTORY, '', $request);
-        $uriArray = explode('/', $uri);
-        unset($uriArray[0]);
-        $uriArray = array_values($uriArray);
-        $parameterArray = array();
-        $count = count($uriArray);
-        while($count > 0) {
+      $count = count($pathArray);
+      while($count > 0) {
 
-          //account for a missing parameter
-          if(!isset($uriArray[1])) {
-            $uriArray[1] = NULL;
-          }
-
-          $parameterArray[$uriArray[0]] = $uriArray[1];
-          unset($uriArray[0]);
-          unset($uriArray[1]);
-          $uriArray = array_values($uriArray);
-          $count = count($uriArray);
+        //account for a missing parameter
+        if(!isset($pathArray[1])) {
+          $pathArray[1] = NULL;
         }
-       }
-      return $parameterArray;
+
+        $paramArray[$pathArray[0]] = $pathArray[1];
+        unset($pathArray[0]);
+        unset($pathArray[1]);
+        $pathArray = array_values($pathArray);
+        $count = count($pathArray);
+      }
+
+      return $paramArray;
     }
 
     function getParameter($paramName) {
-      $parameterArray = $this->getAllParameters();
-      return $parameterArray[$paramName];
-      
+      if(isset($this->parameters[$paramName])) {
+        return $this->parameters[$paramName];
+      }
+      else {
+        return "([$paramName] parameter not found)";
+      }
     }
   }
