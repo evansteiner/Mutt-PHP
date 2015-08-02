@@ -6,18 +6,25 @@
     var $request;
     var $template;
     var $parameters;
+    var $query;
 
     function __construct() {
       $this->method = $_SERVER['REQUEST_METHOD'];
       $this->request = $_SERVER['REQUEST_URI'];
       $this->template = '';
       $this->parameters = $this->getUriParameters();
+      $this->query = $this->getQuery();
       $this->getFrameworkAction();
     }
 
     function getUriParameters() {
       $uriObject = new ParseURI();
       return $uriObject->parameters;
+    }
+
+    function getQuery() {
+      $uriObject = new ParseURI();
+      return $uriObject->query;   
     }
 
     function getTitle() {
