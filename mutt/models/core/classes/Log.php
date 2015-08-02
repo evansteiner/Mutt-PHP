@@ -37,14 +37,10 @@
       return;
     }
 
-    public static function deleteLocalLog($returnURL) {
+    public static function deleteLocalLog() {
       if(file_exists(LOG_DIRECTORY.LOG_FILE)){
         unlink(LOG_DIRECTORY.LOG_FILE);
       }
-      if(strpos($returnURL, '?deleteLocalLog')) {
-        $returnURL = substr($returnURL, 0, strpos($returnURL, "?deleteLocalLog"));
-      }
-      header("Location: $returnURL");
       return;
     }
 

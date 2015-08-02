@@ -49,13 +49,6 @@ $randomizeBaseCssString = <?php echo $randomizeBaseCssString; ?>
      </pre>
   </div>
 
-  <div class="category" onclick="toggle('uriObject')">URI OBJECT</div>
-  <div class="profilerContent" id="uriObject" style="display: none;">
-    <?php
-      Debug::pVarDump($uriObject);
-    ?>
-  </div> 
-
   <div class="category" onclick="toggle('pageObject')">PAGE OBJECT</div>
   <div class="profilerContent" id="pageObject" style="display: none;">
     <?php
@@ -98,7 +91,7 @@ $randomizeBaseCssString = <?php echo $randomizeBaseCssString; ?>
       <input type='text' name="log" style="width: 50%;">
       <input type="submit" value="write">
     </form>
-    <a href="?deleteLocalLog">Delete local log</a>
+    <a href="deleteLocalLog">Delete local log</a>
     <br>
     <?php echo '<a href="http://' . $_SERVER["SERVER_NAME"] . '/' . PROJECT_DIRECTORY . LOG_DIRECTORY . LOG_FILE . '" target = "_blank">Open local log</a>'; ?>
   </div>  
