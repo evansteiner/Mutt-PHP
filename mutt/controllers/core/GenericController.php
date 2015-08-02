@@ -37,6 +37,15 @@
       }
     }
 
+    function getParameter($paramName) {
+      if(isset($this->parameters[$paramName])) {
+        return $this->parameters[$paramName];
+      }
+      else {
+        return "([$paramName] parameter not found)";
+      }
+    }
+
     function getFrameworkAction() {
       if($this->parameters) {
         if (array_key_exists('deleteLocalLog', $this->parameters)) {

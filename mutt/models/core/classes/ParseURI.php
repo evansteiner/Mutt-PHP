@@ -83,12 +83,4 @@
       return $paramArray;
     }
 
-    function getParameter($paramName) {
-      if(isset($this->parameters[$paramName])) {
-        return $this->parameters[$paramName];
-      }
-      else {
-        return "([$paramName] parameter not found)";
-      }
-    }
   }
