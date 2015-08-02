@@ -13,7 +13,7 @@
       $this->request = $_SERVER['REQUEST_URI'];
       $this->template = '';
       $this->parameters = $this->getUriParameters();
-      $this->query = $this->getQuery();
+      $this->query = $this->parseQuery();
       $this->getFrameworkAction();
     }
 
@@ -25,6 +25,12 @@
     function getQuery() {
       $uriObject = new ParseURI();
       return $uriObject->query;   
+    }
+
+    function parseQuery() {
+      $queryString = $this->getQuery();
+      parse_str($queryString, $queryArray);
+      return $queryArray;
     }
 
     function getTitle() {
