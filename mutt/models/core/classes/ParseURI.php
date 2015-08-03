@@ -51,16 +51,21 @@
       $path = trim($this->path, '/');
       $pathArray = explode('/', $path);
 
+
       //remove the folder path if it exists
-      if($pathArray[0] == trim(PROJECT_DIRECTORY, '/')) {
-        unset($pathArray[0]);
-        $pathArray = array_values($pathArray);
+      if(array_key_exists(0, $pathArray)){
+        if($pathArray[0] == trim(PROJECT_DIRECTORY, '/')) {
+          unset($pathArray[0]);
+          $pathArray = array_values($pathArray);
+        }
       }
 
       //remove the target if it's next
-      if($pathArray[0] == $this->target) {
-        unset($pathArray[0]);
-        $pathArray = array_values($pathArray);
+      if(array_key_exists(0, $pathArray)){
+        if($pathArray[0] == $this->target) {
+          unset($pathArray[0]);
+          $pathArray = array_values($pathArray);
+        }
       }
       
       $paramArray = array();
