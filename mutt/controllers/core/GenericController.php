@@ -8,6 +8,7 @@
     var $parameters;
     var $query;
     var $baseRoute;
+    var $uriObject;
 
     function __construct() {
       $this->method = $_SERVER['REQUEST_METHOD'];
@@ -16,18 +17,17 @@
       $this->parameters = $this->getUriParameters();
       $this->query = $this->parseQuery();
       $this->baseRoute = $this->getBaseRoute();
+      $this->uriObject = new ParseURI();
       $this->getFrameworkAction();
     }
 
     function getUriParameters() {
-      $uriObject = new ParseURI();
-      return $uriObject->parameters;
+      return $this->uriObject['parameters'];
     }
 
     function getBaseRoute() {
-      $uriObject = new ParseURI();
-      $host = $uriObject->host;
-      $target = $uriObject->target;
+      $host = $this->uriObject['host'];
+      $target = $this->uriObject['target'];
       if(PROJECT_DIRECTORY !='') {
         $baseRoute = $host . '/' . trim(PROJECT_DIRECTORY, '/') . '/' . $target;
       }
@@ -39,8 +39,7 @@
     }
 
     function getQuery() {
-      $uriObject = new ParseURI();
-      return $uriObject->query;   
+      return $this->uriObject['query'];   
     }
 
     function parseQuery() {
