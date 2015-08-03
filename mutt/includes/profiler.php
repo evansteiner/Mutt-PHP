@@ -1,3 +1,36 @@
+<script>
+
+  function toggle(obj) {
+    var el = document.getElementById(obj);
+    el.style.display = (el.style.display != 'none' ? 'none' : '' );
+  }
+
+  function deleteLocalLog() {
+    var xmlhttp;
+    xmlhttp=new XMLHttpRequest();
+    xmlhttp.open("GET", "?deleteLocalLog", true);
+    xmlhttp.send();
+  }
+
+  function submitLog() {
+    xmlhttp=new XMLHttpRequest();
+    xmlhttp.open("POST", "?writeLocalLog", true);
+    xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+    xmlhttp.send("log=" + document.getElementById('logText').value);
+    xmlhttp.onload = function() {
+        document.getElementById('logText').value="";
+    } 
+  }
+
+  function deletePhpErrorLog() {
+    var xmlhttp;
+    xmlhttp=new XMLHttpRequest();
+    xmlhttp.open("GET", "?deletePhpErrorLog", true);
+    xmlhttp.send();
+    location.reload(); 
+  }
+</script>
+
 <style>
   .profiler {
     border: 1px solid #CCC;
@@ -85,13 +118,11 @@ $randomizeBaseCssString = <?php echo $randomizeBaseCssString; ?>
     <pre>
 <?php echo Log::getPhpErrorLog(); ?>
     </pre>
-    <a href="?deletePhpErrorLog">Delete PHP error_log</a>
+    <button onclick="deletePhpErrorLog();">Delete PHP error log</button>
     <br><br>
-    <form method="post" action="?writeLocalLog">
-      <input type='text' name="log" style="width: 50%;">
-      <input type="submit" value="write">
-    </form>
-    <a href="deleteLocalLog">Delete local log</a>
+    <input id="logText" type='text' name="log" style="width: 50%;">
+    <button onclick="submitLog();">Write</button>
+    <button onclick="deleteLocalLog();">Delete local log</button>
     <br>
     <?php echo '<a href="http://' . $_SERVER["SERVER_NAME"] . '/' . PROJECT_DIRECTORY . LOG_DIRECTORY . LOG_FILE . '" target = "_blank">Open local log</a>'; ?>
   </div>  
@@ -109,10 +140,3 @@ $randomizeBaseCssString = <?php echo $randomizeBaseCssString; ?>
 
 
 </div>
-<script>
-  function toggle(obj) {
-    var el = document.getElementById(obj);
-    el.style.display = (el.style.display != 'none' ? 'none' : '' );
-  }
-
-</script>

@@ -26,14 +26,10 @@
       }
     }
 
-    public static function deletePhpErrorLog($returnURL) {
+    public static function deletePhpErrorLog() {
       if(file_exists('error_log')){
         unlink('error_log');
       }
-      if(strpos($returnURL, '?deletePhpErrorLog')) {
-        $returnURL = substr($returnURL, 0, strpos($returnURL, "?deletePhpErrorLog"));
-      }
-      header("Location: $returnURL");
       return;
     }
 
@@ -44,14 +40,9 @@
       return;
     }
 
-    public static function writeLocalLog($returnURL) {
+    public static function writeLocalLog() {
       $msg = $_POST['log'];
       Log::write($msg);
-
-      if(strpos($returnURL, '?writeLocalLog')) {
-        $returnURL = substr($returnURL, 0, strpos($returnURL, "?writeLocalLog"));
-      }
-      header("Location: $returnURL");
       return;
     }
 

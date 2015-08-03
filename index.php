@@ -36,19 +36,6 @@
     Cookie::setCookie("http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
   }
 
-  //log management 
-  if(isset($_GET['deletePhpErrorLog'])) {
-    Log::deletePhpErrorLog("http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
-  }
-
-  if(isset($_GET['writeLocalLog'])) {
-    Log::writeLocalLog("http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
-  }
-
-  if(isset($_GET['deleteLocalLog'])) {
-    Log::deleteLocalLog("http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
-  }
-
   //error reporting
   if($errorReporting == 1){
     error_reporting(E_ALL);

@@ -7,6 +7,7 @@
     var $template;
     var $parameters;
     var $query;
+    var $baseRoute;
 
     function __construct() {
       $this->method = $_SERVER['REQUEST_METHOD'];
@@ -14,12 +15,27 @@
       $this->template = '';
       $this->parameters = $this->getUriParameters();
       $this->query = $this->parseQuery();
+      $this->baseRoute = $this->getBaseRoute();
       $this->getFrameworkAction();
     }
 
     function getUriParameters() {
       $uriObject = new ParseURI();
       return $uriObject->parameters;
+    }
+
+    function getBaseRoute() {
+      $uriObject = new ParseURI();
+      $host = $uriObject->host;
+      $target = $uriObject->target;
+      if(PROJECT_DIRECTORY !='') {
+        $baseRoute = $host . '/' . trim(PROJECT_DIRECTORY, '/') . '/' . $target;
+      }
+      else {
+        $baseRoute = $host . '/' . $target;
+      }
+      return $baseRoute;
+
     }
 
     function getQuery() {
@@ -53,11 +69,18 @@
     }
 
     function getFrameworkAction() {
-      if($this->parameters) {
-        if (array_key_exists('deleteLocalLog', $this->parameters)) {
+      if($this->query) {
+        if (array_key_exists('deleteLocalLog', $this->query)) {
             FrameworkActions::deleteLocalLog();
+        }
+        elseif (array_key_exists('writeLocalLog', $this->query)) {
+          FrameworkActions::writeLocalLog();
+        }
+        elseif (array_key_exists('deletePhpErrorLog', $this->query)) {
+          FrameworkActions::deletePhpErrorLog();
         }
       }
     }
+
 
   }
