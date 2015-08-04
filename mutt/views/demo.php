@@ -88,6 +88,9 @@
   <p>Mutt-PHP has native support for basic logging. Log name and directory can be set in config.php.</p>
   
   <h2>Debugging Tools</h2>
+  <h3 class="indent-1">Profiler</h3>
+  <p class="indent-1">Mutt-PHP comes with a built in profiler.</p>
+
   <h3 class="indent-1">Debug::pVarDump($var)</h3>
   <p class="indent-1">Format var_dump for readability:</p>
   <p class="indent-1">
