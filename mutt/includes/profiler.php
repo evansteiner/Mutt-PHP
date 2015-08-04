@@ -7,14 +7,17 @@
 
   function deleteLocalLog() {
     var xmlhttp;
+    var submissionURL = "<?php echo $pageObject->baseRoute . '?deleteLocalLog' ?>";
     xmlhttp=new XMLHttpRequest();
-    xmlhttp.open("GET", "?deleteLocalLog", true);
+    xmlhttp.open("GET", "http://" + submissionURL, true);
     xmlhttp.send();
   }
 
   function submitLog() {
+    var xmlhttp;
+    var submissionURL = "<?php echo $pageObject->baseRoute . '?writeLocalLog' ?>";
     xmlhttp=new XMLHttpRequest();
-    xmlhttp.open("POST", "?writeLocalLog", true);
+    xmlhttp.open("POST", "http://" + submissionURL, true);
     xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
     xmlhttp.send("log=" + document.getElementById('logText').value);
     xmlhttp.onload = function() {
