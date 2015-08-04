@@ -97,6 +97,30 @@
 </style>
 
 <div class="profiler">
+  <div class="category" onclick="toggle('phpInfo')">PHP INFO FULL</div>
+  <div class="profilerContent" id="phpInfo" style="display: none;">
+    <?php 
+      ob_start();
+      phpinfo();
+      $pinfo = ob_get_contents();
+      ob_end_clean();
+      $pinfo = preg_replace( '%^.*<body>(.*)</body>.*$%ms','$1',$pinfo);
+      echo $pinfo;
+    ?>
+  </div> 
+
+  <div class="category" onclick="toggle('phpInfoVariables')">PHP INFO VARIABLES</div>
+  <div class="profilerContent" id="phpInfoVariables" style="display: none;">
+    <?php
+      ob_start();
+      phpinfo(INFO_VARIABLES);
+      $pinfo = ob_get_contents();
+      ob_end_clean();
+      $pinfo = preg_replace( '%^.*<body>(.*)</body>.*$%ms','$1',$pinfo);
+      echo $pinfo;
+    ?>
+  </div> 
+
     <div class="category" onclick="toggle('variables')">FRAMEWORK VARIABLES</div>
     <div class="profilerContent" id="variables" style="display: none;">
       <pre>
