@@ -80,6 +80,12 @@
         elseif (array_key_exists('deletePhpErrorLog', $this->query)) {
           FrameworkActions::deletePhpErrorLog();
         }
+        elseif (array_key_exists('addCookie', $this->query)) {
+          FrameworkActions::addCookie();
+        }
+        elseif (array_key_exists('deleteAllCookies', $this->query)) {
+          FrameworkActions::deleteAllCookies();
+        }
       }
     }
 

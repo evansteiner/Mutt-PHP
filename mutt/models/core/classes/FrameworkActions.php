@@ -15,4 +15,14 @@
       Log::deletePhpErrorLog();
       return;
     }
+
+    public static function addCookie() {
+      Cookie::setCookie();
+      return;
+    }
+
+    public static function deleteAllCookies() {
+      Cookie::deleteAllCookies();
+      return;
+    }
   }

@@ -31,7 +31,39 @@
     xmlhttp=new XMLHttpRequest();
     xmlhttp.open("GET", "http://" + submissionURL, true);
     xmlhttp.send();
-    location.reload(); 
+    xmlhttp.onload = function() {
+        location.reload();
+    }
+  }
+
+  function addCookie() {
+    var xmlhttp;
+    var submissionURL = "<?php echo $pageObject->baseRoute . '?addCookie' ?>";
+    xmlhttp=new XMLHttpRequest();
+    xmlhttp.open("POST", "http://" + submissionURL, true);
+    xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+    var cookieName = document.getElementById('cookieName').value;
+    var cookieValue = document.getElementById('cookieValue').value;
+    var cookieDuration = document.getElementById('cookieDuration').value;
+    var cookieDomain = document.getElementById('cookieDomain').value;
+    xmlhttp.send("cookieName=" + cookieName + "&cookieValue=" + cookieValue + "&cookieDuration=" + cookieDuration + "&cookieDomain=" + cookieDomain);
+    xmlhttp.onload = function() {
+        document.getElementById('cookieName').value="";
+        document.getElementById('cookieValue').value="";
+        document.getElementById('cookieDuration').value="";
+        location.reload();
+    }
+  }
+
+  function deleteAllCookies() {
+    var xmlhttp;
+    var submissionURL = "<?php echo $pageObject->baseRoute . '?deleteAllCookies' ?>";
+    xmlhttp=new XMLHttpRequest();
+    xmlhttp.open("GET", "http://" + submissionURL, true);
+    xmlhttp.send();
+    xmlhttp.onload = function() {
+        location.reload();
+    }   
   }
 </script>
 
@@ -105,15 +137,12 @@ $randomizeBaseCssString = <?php echo $randomizeBaseCssString; ?>
     <?php
       Debug::pVarDump($_COOKIE);
     ?>
-    Add a cookie:
-    <form method="post" action="?addCookie">
-      <input type='text' name="cookieName" placeholder="Name">
-      <input type='text' name="cookieValue" placeholder="Value">
-      <input type='text' name="cookieDuration" placeholder="Duration (seconds)">
-      <input type='text' name="cookieDomain" placeholder="Domain" value="/">
-      <input type="submit" value="create">
-    </form>
-    <a href="?deleteAllCookies">Delete all cookies on this domain</a>
+      <input type='text' id="cookieName" placeholder="Name">
+      <input type='text' id="cookieValue" placeholder="Value">
+      <input type='text' id="cookieDuration" placeholder="Duration (seconds)">
+      <input type='text' id="cookieDomain" placeholder="Domain" value="/">
+      <button onclick="addCookie()">Add Cookie</button>
+      <button onclick="deleteAllCookies()">Delete Cookies</button>
   </div> 
 
   <div class="category" onclick="toggle('logs')">LOGS</div>
