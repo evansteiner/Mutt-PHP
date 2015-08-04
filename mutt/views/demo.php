@@ -48,7 +48,11 @@
   
   <h2>Routing</h2>
   <p>Mutt-PHP bootstraps everything through the index.php file and then uses controllers to build pages. The basic breakdown of the URL to routes is:</p>
-  <code>{base_url}/{project_folder}/{template}/{paramter_1}/{parameter_2}/etc...</code>
+  <p><code>{base_url}/{project_folder}/{template}</code></p>
+  <p>After the template, Mutt-PHP will process the remainder of the URI as:</p>
+  <p><code>{base_url}/{project_folder}/{template}/PROPERTY_NAME_1/PROPERTY_VALUE_1/PROPERTY_NAME_2/PROPERTY_VALUE_2/etc...</code></p>
+  <p>It will then take those names/values and return as an array in the page object for easy use. If you want to do something different with how these parameters are handled, you can just extend new functionality in the local controller.</p>
+  <p>Query strings are processed in a similar manner and returned as part of the page object as well.</p>
   
   <h2>Controllers</h2>
   <p>Once a URI has been broken down, Mutt-PHP processes them through a controller to determine what page data to load. <i>All pages will require a controller to load properly.</i> Mutt-PHP comes with a <code>GenericController()</code> class which must be extended when adding new pages. To ensure proper autoloading, your custom controllers should always follow the <code>[Pagename]Controller</code> naming convention. Custom controllers should be added to mutt/controllers/local/.</p  >
