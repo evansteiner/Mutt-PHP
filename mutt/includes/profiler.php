@@ -24,8 +24,9 @@
 
   function deletePhpErrorLog() {
     var xmlhttp;
+    var submissionURL = "<?php echo $pageObject->baseRoute . '?deletePhpErrorLog' ?>";
     xmlhttp=new XMLHttpRequest();
-    xmlhttp.open("GET", "?deletePhpErrorLog", true);
+    xmlhttp.open("GET", "http://" + submissionURL, true);
     xmlhttp.send();
     location.reload(); 
   }
