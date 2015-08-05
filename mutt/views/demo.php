@@ -78,10 +78,13 @@
   <h2>Database</h2>
   <p>Mutt-PHP supports slightly abstracted mySQLi functions through the <code>Database()</code> class. At this time, it only supports a single database connection out-of-the-box, although you could extend the class with multiple connections if needed. Connection details shoudl be supplied in config.php</p>
   <p>Sample useage:</p>
-  <pre>
-    $connection = new Database;
-    $connection->query("INSERT INTO names (first, last) VALUES ('john', 'doe')");
-  </pre>
+  <p>
+    <pre>
+      
+      $connection = new Database;
+      $connection->query("INSERT INTO names (first, last) VALUES ('john', 'doe')");
+    </pre>
+  </p>
 
   <h2>Logging</h2>
   <p><code>Log::write('This is my logged message.');</code></p>
