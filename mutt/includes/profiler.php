@@ -193,7 +193,11 @@ $randomizeBaseCssString = <?php echo $randomizeBaseCssString; ?>
       <li>$result = $connection->fetchRow("SELECT * FROM people WHERE first_name = 'john'");</li>
       <li>$result = $connection->fetchAll("SELECT * FROM people");</li>
     </ul>
+    <div>HTTP REQUESTS</div>
+      $request = new HttpRequest;
+      <ul>
+        <li>$result = $request->post($url, $data); //$data must array of post data ($key => $value)</li>
+      </ul>
+    </div>  
   </div>  
-
-
 </div>

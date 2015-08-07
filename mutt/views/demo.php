@@ -86,6 +86,14 @@
     </pre>
   </p>
 
+<h2>HTTP Requests</h2>
+<p>Mutt-PHP provides a simeple <code>HttpRequest</code> class for basic HTTP transactions. If we assume that <code>$url</code> is the URL that we want to post to, and that <code>$data</code> is an array of the post data we want to send ($key => $value), then:</p>
+<pre>
+$request = new HttpRequest;
+$result = $request->post($url, $data);
+</pre>
+<p>The above will post to the provided URL and then return an array of whatever headers come back. </p>
+
   <h2>Logging</h2>
   <p><code>Log::write('This is my logged message.');</code></p>
   <p>Mutt-PHP has native support for basic logging. Log name and directory can be set in config.php.</p>
