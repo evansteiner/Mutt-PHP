@@ -29,13 +29,12 @@
       $host = $this->uriObject->host;
       $target = $this->uriObject->target;
       if(PROJECT_DIRECTORY !='') {
-        $baseRoute = $host . '/' . trim(PROJECT_DIRECTORY, '/') . '/' . $target;
+        $baseRoute = $host . '/' . trim(PROJECT_DIRECTORY, '/');
       }
       else {
-        $baseRoute = $host . '/' . $target;
+        $baseRoute = $host;
       }
       return $baseRoute;
-
     }
 
     function getQuery() {
@@ -74,9 +73,9 @@
         if (array_key_exists('deleteLocalLog', $this->query)) {
             FrameworkActions::deleteLocalLog();
         }
-        elseif (array_key_exists('writeLocalLog', $this->query)) {
-          FrameworkActions::writeLocalLog();
-        }
+        // elseif (array_key_exists('writeLocalLog', $this->query)) {
+        //   FrameworkActions::writeLocalLog();
+        // }
         elseif (array_key_exists('deletePhpErrorLog', $this->query)) {
           FrameworkActions::deletePhpErrorLog();
         }

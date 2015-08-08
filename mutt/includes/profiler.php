@@ -13,9 +13,9 @@
     xmlhttp.send();
   }
 
-  function submitLog() {
+  function writeLocalLog() {
     var xmlhttp;
-    var submissionURL = "<?php echo $pageObject->baseRoute . '?writeLocalLog' ?>";
+    var submissionURL = "<?php echo $pageObject->baseRoute . '/FrameworkActions/writeLocalLog' ?>";
     xmlhttp=new XMLHttpRequest();
     xmlhttp.open("POST", "http://" + submissionURL, true);
     xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
@@ -178,7 +178,7 @@ $randomizeBaseCssString = <?php echo $randomizeBaseCssString; ?>
     <button onclick="deletePhpErrorLog();">Delete PHP error log</button>
     <br><br>
     <input id="logText" type='text' name="log" style="width: 50%;">
-    <button onclick="submitLog();">Write</button>
+    <button onclick="writeLocalLog();">Write</button>
     <button onclick="deleteLocalLog();">Delete local log</button>
     <br>
     <?php echo '<a href="http://' . $_SERVER["SERVER_NAME"] . '/' . PROJECT_DIRECTORY . LOG_DIRECTORY . LOG_FILE . '" target = "_blank">Open local log</a>'; ?>
