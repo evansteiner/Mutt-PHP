@@ -59,7 +59,9 @@
   }
 
   //page template
-  include $pageObject->template;
+  if($pageObject->template != "") {
+    include $pageObject->template;
+  }
   
   //htmlFooters
   if($htmlFooter == 1) {
