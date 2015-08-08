@@ -7,7 +7,7 @@
 
   function deleteLocalLog() {
     var xmlhttp;
-    var submissionURL = "<?php echo $pageObject->baseRoute . '?deleteLocalLog' ?>";
+    var submissionURL = "<?php echo $pageObject->baseRoute . '/FrameworkActions/deleteLocalLog' ?>";
     xmlhttp=new XMLHttpRequest();
     xmlhttp.open("GET", "http://" + submissionURL, true);
     xmlhttp.send();
@@ -27,7 +27,7 @@
 
   function deletePhpErrorLog() {
     var xmlhttp;
-    var submissionURL = "<?php echo $pageObject->baseRoute . '?deletePhpErrorLog' ?>";
+    var submissionURL = "<?php echo $pageObject->baseRoute . '/FrameworkActions/deletePhpErrorLog' ?>";
     xmlhttp=new XMLHttpRequest();
     xmlhttp.open("GET", "http://" + submissionURL, true);
     xmlhttp.send();
@@ -38,7 +38,7 @@
 
   function addCookie() {
     var xmlhttp;
-    var submissionURL = "<?php echo $pageObject->baseRoute . '?addCookie' ?>";
+    var submissionURL = "<?php echo $pageObject->baseRoute . '/FrameworkActions/addCookie' ?>";
     xmlhttp=new XMLHttpRequest();
     xmlhttp.open("POST", "http://" + submissionURL, true);
     xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
@@ -57,7 +57,7 @@
 
   function deleteAllCookies() {
     var xmlhttp;
-    var submissionURL = "<?php echo $pageObject->baseRoute . '?deleteAllCookies' ?>";
+    var submissionURL = "<?php echo $pageObject->baseRoute . '/FrameworkActions/deleteAllCookies' ?>";
     xmlhttp=new XMLHttpRequest();
     xmlhttp.open("GET", "http://" + submissionURL, true);
     xmlhttp.send();

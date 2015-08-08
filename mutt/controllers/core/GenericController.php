@@ -18,7 +18,6 @@
       $this->parameters = $this->getUriParameters();
       $this->query = $this->parseQuery();
       $this->baseRoute = $this->getBaseRoute();
-      $this->getFrameworkAction();
     }
 
     function getUriParameters() {
@@ -65,28 +64,4 @@
         return "([$paramName] parameter not found)";
       }
     }
-
-    function getFrameworkAction() {
-      foreach($this->query as $key => $value){
-      }
-      if($this->query) {
-        if (array_key_exists('deleteLocalLog', $this->query)) {
-            FrameworkActions::deleteLocalLog();
-        }
-        // elseif (array_key_exists('writeLocalLog', $this->query)) {
-        //   FrameworkActions::writeLocalLog();
-        // }
-        elseif (array_key_exists('deletePhpErrorLog', $this->query)) {
-          FrameworkActions::deletePhpErrorLog();
-        }
-        elseif (array_key_exists('addCookie', $this->query)) {
-          FrameworkActions::addCookie();
-        }
-        elseif (array_key_exists('deleteAllCookies', $this->query)) {
-          FrameworkActions::deleteAllCookies();
-        }
-      }
-    }
-
-
   }
