@@ -26,7 +26,7 @@
     function fetchRow($query){
       $conn = $this->dbConnect();
       $data = $conn->query($query);
-      $result = $data->fetch_row();
+      $result = $data->fetch_assoc();
       mysqli_close($conn); 
       return $result;
     }
