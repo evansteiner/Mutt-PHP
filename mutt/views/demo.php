@@ -93,6 +93,20 @@ $request = new HttpRequest;
 $result = $request->post($url, $data);
 </pre>
 <p>The above will post to the provided URL and then return an array of whatever headers come back. </p>
+<p>Alternatively, if you're using jQuery, it's often to just use that to post: </p>
+  <pre>
+    $.ajax({
+        type: 'POST',
+        url: "FrameworkActions/writeLocalLog",
+        data: { 
+            'log': 'this is my log message', 
+        },
+        success: function(msg){
+            alert('success!';
+        }
+    });
+  }
+  </pre>
 
   <h2>Logging</h2>
   <p><code>Log::write('This is my logged message.');</code></p>
