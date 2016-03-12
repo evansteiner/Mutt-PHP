@@ -69,6 +69,9 @@
       }
     }
   </pre>
+  <p>Once a controller fully executes, a $pageObject will be generated that contains (among other things) easy access to data from the controller.  Effective use of the $pageObject is a core concept when using Mutt-PHP. It is important to recognize that the $pageObject is not available until we're in a post-controller state. Much of the same info is available in the controller layer, but must be accessed without the $pageObject. For example, $pageObject->parameters['value1'] in the VIEW layer is analogous to $this->parameters['value1'] in the controller layer.</p>
+
+
   <p>If a controller cannot be found for requested URI, Mutt-PHP will return a 404 response.</p>
   
   <h2>Views</h2>
